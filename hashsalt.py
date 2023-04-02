@@ -6,11 +6,11 @@ import secrets
 salt = secrets.token_hex(16)
 
 #Connecting to Mysql Database.
-mysqlconn = mysql.connector.connect(host="localhost", username="asteffes", password="asteffes", database = "asteffes")
+mysqlconn = mysql.connector.connect(host="localhost", username="", password="", database = "")
 mysqlcursor = mysqlconn.cursor()
 
 #Sql statement.
-sql = ("INSERT INTO hashsaltpy (uName, pWord) VALUES (uName, temp)")
+sql = ("INSERT INTO 'TableName' (Username, Password) VALUES (userName, hashedPassword)")
 
 #Executing changes to database.
 mysqlcursor.execute(sql)
@@ -27,14 +27,14 @@ salt = secrets.token_hex(16)
 
 print("Hello, you are creating your username and password here:")
 
-uName = input("Username?")
-pWord = input("Password?")
+userName = input("Username?")
+passWord = input("Password?")
 #Built in hashing algorithm python has + salt from above.
-temp = hash(pWord + salt)
+hashedPassword = hash(passWord + salt)
 
 print("Your account has been created now")
 
 #Just confirming down below here.
-print(uName)
-print(pWord)
-print(temp)
+print(userName)
+print(passWord)
+print(hashedPassword)
